@@ -31,7 +31,7 @@ public class Main {
                     return animal;
             }
         } catch (InputMismatchException e) {
-            System.out.println("Возраст и вес должны быть числовыми значениями от 0 до 300");
+            System.out.println("Возраст и вес должны быть числовыми значениями");
         }
         return animalGenerate(anyAnimal, new Scanner(System.in));
     }
