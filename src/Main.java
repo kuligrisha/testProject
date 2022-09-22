@@ -10,13 +10,29 @@ public class Main {
 
     public static Animal animalGenerate(String anyAnimal, Scanner sc) {
         Animal animal;
-        try {
             System.out.println("Введите имя");
             String name = sc.next();
-            System.out.println("Введите возраст");
-            int age = sc.nextInt();
-            System.out.println("Введите вес");
-            int weight = sc.nextInt();
+            int age;
+            do {
+                System.out.println("Введите возраст");
+                ;
+                while (!sc.hasNextInt()) {
+                    System.out.println("Введите числовое значение");
+                    sc.next();
+                }
+                age = sc.nextInt();
+            } while (age <= 0);
+            int weight;
+            do {
+                System.out.println("Введите вес");
+                ;
+                while (!sc.hasNextInt()) {
+                    System.out.println("Введите числовое значение");
+                    sc.next();
+                }
+                weight = sc.nextInt();
+            } while (weight <= 0);
+
             System.out.println("Введите цвет");
             String color = sc.next();
             switch (anyAnimal) {
@@ -30,9 +46,6 @@ public class Main {
                     animal = new Duck(name, age, weight, color);
                     return animal;
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Возраст и вес должны быть числовыми значениями");
-        }
         return animalGenerate(anyAnimal, new Scanner(System.in));
     }
 
